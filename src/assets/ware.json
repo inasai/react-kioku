@@ -1,0 +1,65 @@
+[
+   {
+     "id": 0,
+     "image": "https://www.svgrepo.com/show/55364/big-shopping-bag.svg",
+     "title": "Товар №1",
+     "types": [0, 1, 2],
+     "price": 803,
+     "category": 0,
+     "rating": 4
+   },
+   {
+     "id": 1,
+     "image": "https://www.svgrepo.com/show/55364/big-shopping-bag.svg",
+     "title": "Товар №2",
+     "types": [0, 1],
+     "price": 245,
+     "category": 0,
+     "rating": 6
+   },
+   {
+     "id": 2,
+     "image": "https://www.svgrepo.com/show/55364/big-shopping-bag.svg",
+     "title": "Товар №3",
+     "types": [0],
+     "price": 295,
+     "category": 1,
+     "rating": 4
+   },
+   {
+     "id": 3,
+     "image": "https://www.svgrepo.com/show/55364/big-shopping-bag.svg",
+     "title": "Товар №4",
+     "types": [1],
+     "price": 275,
+     "category": 2,
+     "rating": 2
+   },
+   {
+     "id": 4,
+     "image": "https://www.svgrepo.com/show/55364/big-shopping-bag.svg",
+     "title": "Товар №5",
+     "types": [0, 1],
+     "price": 415,
+     "category": 3,
+     "rating": 8
+   },
+   {
+     "id": 5,
+     "image": "https://www.svgrepo.com/show/55364/big-shopping-bag.svg",
+     "title": "Товар №6",
+     "types": [0],
+     "price": 580,
+     "category": 2,
+     "rating": 2
+   },
+   {
+     "id": 6,
+     "image": "https://www.svgrepo.com/show/55364/big-shopping-bag.svg",
+     "title": "Товар №7",
+     "types": [0, 1],
+     "price": 675,
+     "category": 1,
+     "rating": 9
+   }   
+ ]

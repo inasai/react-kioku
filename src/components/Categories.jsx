@@ -1,13 +1,18 @@
+import React from 'react'
+
 function Categories() {
+const [activeCategories, setActiveCategories] = React.useState(0)
+const categories = ['Усі товари', 'Категорія 1', 'Категорія 2', 'Категорія 3', 'Категорія 4', 'Категорія 5']
+
+
    return (
-     <div class="categories">
+     <div className="categories">
        <ul>
-         <li class="active">Усі товари</li>
-         <li>Категорія 1</li>
-         <li>Категорія 2</li>
-         <li>Категорія 3</li>
-         <li>Категорія 4</li>
-         <li>Категорія 5</li>
+         {
+            categories.map((value, index) => (
+            <li key={value} onClick={() => setActiveCategories(index)} className={activeCategories === index ? 'active' : ''}>{value}</li>
+            ))
+         }
        </ul>
      </div>
    );

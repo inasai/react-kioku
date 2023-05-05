@@ -1,30 +1,25 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-function WareBlock({ title, price }) {
-   const [wareCount, setWareCount] = useState(0)
+function WareBlock({ title, price, image, types }) {
+   const [activeType, setActiveType] = React.useState(0)
+   const typeNames = ['Type1', 'Type2', 'Type3']
 
    return (
-      <div class="ware-block">
+      <div className="ware-block">
          <img
-            class="ware-block__image"
-            src="https://cdns.iconmonstr.com/wp-content/releases/preview/2019/240/iconmonstr-product-2.png"
+            className="ware-block__image"
+            src={image}
             alt="Ware"
          />
-         <h4 class="ware-block__title">{title}</h4>
-         <div class="ware-block__selector">
+         <h4 className="ware-block__title">{title}</h4>
+         <div className="ware-block__selector">
             <ul>
-               <li class="active">Пункт1</li>
-               <li>Пункт2</li>
-            </ul>
-            <ul>
-               <li class="active">вибір1</li>
-               <li>вибір2</li>
-               <li>вибір3</li>
+               {types.map((types) => <li key={types} onClick={() => setActiveType(types)} className={activeType === types ? 'active' : ''}>{typeNames[types]}</li>)}
             </ul>
          </div>
-         <div class="ware-block__bottom">
-            <div class="ware-block__price">{price} ₴</div>
-            <button class="button button--outline button--add">
+         <div className="ware-block__bottom">
+            <div className="ware-block__price">{price} ₴</div>
+            <button className="button button--outline button--add">
                <svg
                   width="12"
                   height="12"
@@ -37,7 +32,7 @@ function WareBlock({ title, price }) {
                   />
                </svg>
                <span>Додати</span>
-               <i>{wareCount}</i>
+               <i>0</i>
             </button>
          </div>
       </div>
