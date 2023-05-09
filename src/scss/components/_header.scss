@@ -8,6 +8,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 750px) {
+      p {
+        display: none;
+      }
+    }
+
+    @media (max-width: 450px) {
+      h1 {
+        display: none;
+      }
+    }
   }
 
   &__logo {
@@ -15,6 +27,7 @@
 
     img {
       margin-right: 15px;
+      float: left;
     }
 
     h1 {
@@ -23,6 +36,7 @@
       letter-spacing: 1%;
       text-transform: uppercase;
       font-weight: 800;
+      display: inline-block;
     }
 
     p {

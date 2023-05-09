@@ -6,7 +6,7 @@ const categories = ['Усі товари', 'Категорія 1', 'Катего
 
 
    return (
-     <div className="categories">
+     <div className='categories'>
        <ul>
          {
             categories.map((value, index) => (
