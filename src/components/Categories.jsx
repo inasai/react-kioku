@@ -1,21 +1,26 @@
-import React from 'react'
+import React from 'react';
 
-function Categories() {
-const [activeCategories, setActiveCategories] = React.useState(0)
-const categories = ['Усі товари', 'Категорія 1', 'Категорія 2', 'Категорія 3', 'Категорія 4', 'Категорія 5']
+function Categories({ value, onCategory }) {
+  const categories = [
+    'Усі товари',
+    'Ноутбуки та ПК',
+    'Смартфони',
+    'Ігрові консолі',
+    'TV',
+    'Девайси',
+  ];
 
+  return (
+    <div className="categories">
+      <ul>
+        {categories.map((name, i) => (
+          <li key={i} onClick={() => onCategory(i)} className={value === i ? 'active' : ''}>
+            {name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-   return (
-     <div className='categories'>
-       <ul>
-         {
-            categories.map((value, index) => (
-            <li key={value} onClick={() => setActiveCategories(index)} className={activeCategories === index ? 'active' : ''}>{value}</li>
-            ))
-         }
-       </ul>
-     </div>
-   );
- }
-
- export default Categories
+export default Categories;

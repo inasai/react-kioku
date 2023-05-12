@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 notice
+Ware(DB).txt
 
 # testing
 /coverage
