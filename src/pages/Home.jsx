@@ -11,16 +11,18 @@ const Home = () => {
   const [categories, setCategories] = React.useState(0);
   const [sort, setSort] = React.useState({
     name: 'популярне',
-    sortProperty: 'rating&order=desc',
+    sortProperty: 'rating',
   });
 
   React.useEffect(() => {
     setIsLoad(true);
 
-    const categoryBy = categories > 0 ? `category=${categories}` : '';
+    const category = categories > 0 ? `category=${categories}` : '';
+    const sortBy = sort.sortProperty.replace('-', '');
+    const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
 
     fetch(
-      `https://6454ba85f803f345762f9c56.mockapi.io/Items?${categoryBy}&sortBy=${sort.sortProperty}`,
+      `https://6454ba85f803f345762f9c56.mockapi.io/Items?${category}&sortBy=${sortBy}&order=${order}`,
     )
       .then((res) => res.json())
       .then((arr) => {

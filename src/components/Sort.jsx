@@ -4,9 +4,9 @@ function Sort({ value, onSort }) {
   const [isVisible, setIsVisible] = React.useState(false);
 
   const listMenu = [
-    { name: 'популярне', sortProperty: 'rating&order=desc' },
-    { name: 'дешевше', sortProperty: 'price&order=asc' },
-    { name: 'дорожче', sortProperty: 'price&order=desc' },
+    { name: 'популярне', sortProperty: 'rating' },
+    { name: 'дешевше', sortProperty: '-price' },
+    { name: 'дорожче', sortProperty: 'price' },
   ];
 
   const onListMenu = (i) => {
