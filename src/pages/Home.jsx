@@ -5,8 +5,11 @@ import Sort from '../components/Sort';
 import WareBlock from '../components/WareBlock/Ware';
 import Skeleton from '../components/WareBlock/Skeleton';
 import Pagination from '../components/pagination';
+import { SearchContext } from '../App';
 
-const Home = ({ searchVal }) => {
+const Home = () => {
+  const { searchVal } = React.useContext(SearchContext);
+
   const [items, setItems] = React.useState([]);
   const [isLoad, setIsLoad] = React.useState([true]);
   const [categories, setCategories] = React.useState(0);

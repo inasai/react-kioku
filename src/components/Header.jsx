@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Search from './Search';
 import Logo from '../assets/img/kioku-logo.svg';
 
-function Header({ searchVal, setSearchVal }) {
+function Header() {
   return (
     <div className="header">
       <div className="container">
@@ -17,7 +17,7 @@ function Header({ searchVal, setSearchVal }) {
             </Link>
             <p>дипломний проект магазину техніки</p>
           </div>
-          <Search searchVal={searchVal} setSearchVal={setSearchVal} />
+          <Search />
         </div>
         <div className="header__cart">
           <Link to="/cart" className="button button--cart">
