@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
@@ -6,18 +7,21 @@ import WareBlock from '../components/WareBlock/Ware';
 import Skeleton from '../components/WareBlock/Skeleton';
 import Pagination from '../components/pagination';
 import { SearchContext } from '../App';
+import { setCategories } from '../redux/slices/filterSlice';
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { categories, sort } = useSelector((state) => state.filter);
+
   const { searchVal } = React.useContext(SearchContext);
 
   const [items, setItems] = React.useState([]);
   const [isLoad, setIsLoad] = React.useState([true]);
-  const [categories, setCategories] = React.useState(0);
-  const [sort, setSort] = React.useState({
-    name: 'популярне',
-    sortProperty: 'rating',
-  });
   const [currentPage, setCurrentPage] = React.useState(1);
+
+  const onChangeCategoties = (id) => {
+    dispatch(setCategories(id));
+  };
 
   React.useEffect(() => {
     setIsLoad(true);
@@ -36,7 +40,7 @@ const Home = () => {
         setIsLoad(false);
       });
     window.scrollTo(0, 0);
-  }, [categories, sort, searchVal, currentPage]);
+  }, [categories, sort.sortProperty, searchVal, currentPage]);
 
   const wares = items.map((obj) => <WareBlock key={obj.id} {...obj} />);
 
@@ -45,8 +49,8 @@ const Home = () => {
   return (
     <div className="container">
       <div className="content__top">
-        <Categories value={categories} onCategory={(i) => setCategories(i)} />
-        <Sort value={sort} onSort={(i) => setSort(i)} />
+        <Categories value={categories} onCategory={onChangeCategoties} />
+        <Sort />
       </div>
       <h2 className="content__title">Усі товари</h2>
       <div className="content__items">{isLoad ? skeletons : wares}</div>

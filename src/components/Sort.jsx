@@ -1,16 +1,21 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSort } from '../redux/slices/filterSlice';
 
-function Sort({ value, onSort }) {
+const listMenu = [
+  { name: 'популярне', sortProperty: 'rating' },
+  { name: 'дешевше', sortProperty: '-price' },
+  { name: 'дорожче', sortProperty: 'price' },
+];
+
+function Sort() {
+  const dispatch = useDispatch();
+  const sort = useSelector((state) => state.filter.sort);
+
   const [isVisible, setIsVisible] = React.useState(false);
 
-  const listMenu = [
-    { name: 'популярне', sortProperty: 'rating' },
-    { name: 'дешевше', sortProperty: '-price' },
-    { name: 'дорожче', sortProperty: 'price' },
-  ];
-
-  const onListMenu = (i) => {
-    onSort(i);
+  const onListMenu = (obj) => {
+    dispatch(setSort(obj));
     setIsVisible(false);
   };
 
@@ -31,7 +36,7 @@ function Sort({ value, onSort }) {
           />
         </svg>
         <b>Фільтр:</b>
-        <span onClick={() => setIsVisible(!isVisible)}>{value.name}</span>
+        <span onClick={() => setIsVisible(!isVisible)}>{sort.name}</span>
       </div>
       <div>
         {isVisible && (
@@ -41,7 +46,7 @@ function Sort({ value, onSort }) {
                 <li
                   key={i}
                   onClick={() => onListMenu(obj)}
-                  className={value.sortProperty === obj.sortProperty ? 'active' : ''}>
+                  className={sort.sortProperty === obj.sortProperty ? 'active' : ''}>
                   {obj.name}
                 </li>
               ))}
