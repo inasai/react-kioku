@@ -1,11 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function WareBlock({ title, price, image, types }) {
+function WareBlock({ id, title, price, image, types }) {
+  const navigate = useNavigate();
   const [activeType, setActiveType] = React.useState(0);
   const typeNames = ['Type1', 'Type2', 'Type3'];
 
+  const goToWare = () => {
+    navigate('/ware/' + id)
+  }
+
   return (
-    <div className="ware-block-wrapper">
+    <div className="ware-block-wrapper" onClick={goToWare}>
       <div className="ware-block">
         <img className="ware-block__image" src={image} alt="Ware" />
         <h4 className="ware-block__title">{title}</h4>
@@ -23,7 +29,7 @@ function WareBlock({ title, price, image, types }) {
         </div>
         <div className="ware-block__bottom">
           <div className="ware-block__price">{price} ₴</div>
-          <button className="button button--outline button--add">
+          <button className="button button--outline button--add" onClick={e => e.stopPropagation()}>
             <svg
               width="12"
               height="12"
