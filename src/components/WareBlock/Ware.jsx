@@ -6,6 +6,8 @@ function WareBlock({ id, title, price, image, types }) {
   const [activeType, setActiveType] = React.useState(0);
   const typeNames = ['Type1', 'Type2', 'Type3'];
 
+  console.log(types)
+
   const goToWare = () => {
     navigate('/ware/' + id)
   }
@@ -13,18 +15,21 @@ function WareBlock({ id, title, price, image, types }) {
   return (
     <div className="ware-block-wrapper" onClick={goToWare}>
       <div className="ware-block">
-        <img className="ware-block__image" src={image} alt="Ware" />
+        <div className="ware-block__image">
+          <img src={image} alt="Ware" />
+        </div>
         <h4 className="ware-block__title">{title}</h4>
         <div className="ware-block__selector">
           <ul>
-            {types.map((types) => (
+            {/* {types.map((types) => (
               <li
                 key={types}
                 onClick={() => setActiveType(types)}
                 className={activeType === types ? 'active' : ''}>
                 {typeNames[types]}
               </li>
-            ))}
+            ))} */}
+            {types}
           </ul>
         </div>
         <div className="ware-block__bottom">
