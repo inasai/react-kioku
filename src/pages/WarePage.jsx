@@ -17,7 +17,7 @@ const WarePage = () => {
       setIsLoad(false);
       window.scrollTo(0, 0);
     })
-	}, [id])
+	}, [])
 
 	if(isLoad) {
 		return <div className="loading">Loading...</div>
