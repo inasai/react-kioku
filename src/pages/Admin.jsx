@@ -46,28 +46,52 @@ const Admin = () => {
           <form className="admin__form" onSubmit={handleAddDevice}>
             <div className="admin__form-fields">
               <div className="admin__form-field">
-                <div className="admin__form-field__title">Image</div>
-                <Input name="image" value={image} onChange={(value) => setImage(value)} />
+                <Input
+                  placeholder="Зображення..."
+                  name="image"
+                  value={image}
+                  onChange={(value) => setImage(value)}
+                />
               </div>
               <div className="admin__form-field">
-                <div className="admin__form-field__title">Title</div>
-                <Input name="name" value={title} onChange={(value) => setTitle(value)} />
+                <Input
+                  placeholder="Назва..."
+                  name="name"
+                  value={title}
+                  onChange={(value) => setTitle(value)}
+                />
               </div>
               <div className="admin__form-field">
-                <div className="admin__form-field__title">Price</div>
-                <Input name="price" value={price} onChange={(value) => setPrice(value)} />
+                <Input
+                  placeholder="Ціна..."
+                  name="price"
+                  value={price}
+                  onChange={(value) => setPrice(value)}
+                />
               </div>
               <div className="admin__form-field">
-                <div className="admin__form-field__title">Category</div>
-                <Input name="category" value={category} onChange={(value) => setCategory(value)} />
+                <Input
+                  placeholder="Категорія..."
+                  name="category"
+                  value={category}
+                  onChange={(value) => setCategory(value)}
+                />
               </div>
               <div className="admin__form-field">
-                <div className="admin__form-field__title">Types</div>
-                <Input name="types" value={types} onChange={(value) => setTypes(value)} />
+                <Input
+                  placeholder="Тип..."
+                  name="types"
+                  value={types}
+                  onChange={(value) => setTypes(value)}
+                />
               </div>
               <div className="admin__form-field">
-                <div className="admin__form-field__title">Rating</div>
-                <Input name="types" value={rating} onChange={(value) => setRating(value)} />
+                <Input
+                  placeholder="Оцінка..."
+                  name="types"
+                  value={rating}
+                  onChange={(value) => setRating(value)}
+                />
               </div>
             </div>
             <div className="admin__form-btn">
