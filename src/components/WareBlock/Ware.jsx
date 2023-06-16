@@ -1,16 +1,31 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { addItem } from '../../redux/slices/cartSlice';
+
 function WareBlock({ id, title, price, image, types }) {
+  const dispatch = useDispatch();
+  const cartItem = useSelector((state) => state.cart.items).find((obj) => obj.id === id);
   const navigate = useNavigate();
   const [activeType, setActiveType] = React.useState(0);
   const typeNames = ['Type1', 'Type2', 'Type3'];
 
-  console.log(types)
+  const addedCount = cartItem ? cartItem.count : 0;
+
+  const onClickAdd = () => {
+    const items = {
+      id,
+      title,
+      price,
+      image,
+    };
+    dispatch(addItem(items));
+  };
 
   const goToWare = () => {
-    navigate('/ware/' + id)
-  }
+    navigate('/ware/' + id);
+  };
 
   return (
     <div className="ware-block-wrapper" onClick={goToWare}>
@@ -34,7 +49,12 @@ function WareBlock({ id, title, price, image, types }) {
         </div>
         <div className="ware-block__bottom">
           <div className="ware-block__price">{price} ₴</div>
-          <button className="button button--outline button--add" onClick={e => e.stopPropagation()}>
+          <button
+            className="button button--outline button--add"
+            onClick={(e) => {
+              e.stopPropagation();
+              onClickAdd();
+            }}>
             <svg
               width="12"
               height="12"
@@ -47,7 +67,7 @@ function WareBlock({ id, title, price, image, types }) {
               />
             </svg>
             <span>Додати</span>
-            <i>0</i>
+            {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>
       </div>
