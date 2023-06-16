@@ -48,7 +48,7 @@ const Admin = () => {
 					<div className="admin__form-fields">	
 						<div className="admin__form-field">
 							<div className="admin__form-field__title">Image</div>
-							<Input name="image" value={image} onChange={value => setImage(value)} />
+							<Input placeholder='Хуй' name="image" value={image} onChange={value => setImage(value)} />
 						</div>
 						<div className="admin__form-field">
 							<div className="admin__form-field__title">Title</div>
