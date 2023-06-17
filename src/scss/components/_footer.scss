@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  text-align: right;
+}
+
+.header__logo {
+  display: flex;
+  text-align: right;
+}
+
+.header__logo img {
+  width: 53px;
+  margin-right: 10px;
+}
+
+.header__logo p {
+  margin: 0;
+}
+
+.social {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-item {
+  margin-left: 10px;
+}
+
+.contacts-item {
+  margin-left: 10px;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+}

@@ -122,9 +122,9 @@ const Cart = () => {
 
               <span>Повернутись</span>
             </Link>
-            <div class="button pay-btn">
+            <Link to="/buy" class="button pay-btn">
               <span>Замовити</span>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
